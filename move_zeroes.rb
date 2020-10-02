@@ -1,14 +1,9 @@
 # frozen_string_literal: true
 
 def move_zeroes(nums)
-  zeroes = []
-  nums.each_with_index do |value, index|
-    if nums[index].zero?
-      zeroes << value
-      nums.delete_at(index)
-    end
-  end
-  nums + zeroes
+  zeroes = nums.count(0)
+  nums.delete(0)
+  zeroes.times { nums << 0 }
 end
 
 p move_zeroes([0, 1, 0, 3, 12])
