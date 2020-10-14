@@ -3,6 +3,7 @@
 # @param {Integer[]} nums
 # @param {Integer} target
 # @return {Integer}
+# Implement the binary solution later
 def search(nums, target)
   nums.index(target).nil? ? -1 : nums.index(target)
 end
