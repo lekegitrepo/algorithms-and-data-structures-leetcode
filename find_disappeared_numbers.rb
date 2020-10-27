@@ -3,16 +3,16 @@
 def find_disappeared_numbers(nums)
   return [] if nums.empty?
 
-  min_num = nums.min < nums.max ? nums.min : 0
-  missing_arr = []
-
-  (min_num..nums.length).each do |n|
-    curr_val = n+1
-    if !nums.include?(curr_val) && curr_val <= nums.length
-      missing_arr << curr_val
-    end
+  (0...nums.size).each do |i|
+    value = nums[i].abs
+    index = value - 1
+    nums[index] *= -1 if (nums[index]).positive?
   end
-  missing_arr
+  missed_value = []
+  (0...nums.size).each do |i|
+    missed_value.push(i + 1) if (nums[i]).positive?
+  end
+  missed_value
 end
 
 p find_disappeared_numbers([4, 3, 2, 7, 8, 2, 3, 1])
